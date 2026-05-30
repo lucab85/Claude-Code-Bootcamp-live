@@ -1,0 +1,8 @@
+{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "Bash",
+      "hooks": [{"type": "command", "command": "bash module-09/pre-commit-smoke.sh"}]
+    }]
+  }
+}
