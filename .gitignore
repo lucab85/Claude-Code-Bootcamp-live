@@ -1,6 +1,13 @@
 # data files — never commit
 tasks.json
 *.json.bak
+*.db
+
+# caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
 
 # virtual environments
 .venv/
