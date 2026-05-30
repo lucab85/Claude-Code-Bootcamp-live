@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <header class="header">
+      <span class="header__title">Dashboard</span>
+      <button class="btn-primary">+ New Note</button>
+    </header>
+
+    <!-- Body -->
+    <div class="body">
+
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        {% for link in nav_links %}
+        <a href="#"
+           class="sidebar__link{% if link == active %} sidebar__link--active{% endif %}">
+          {{ link }}
+        </a>
+        {% endfor %}
+      </nav>
+
+      <!-- Main -->
+      <main class="main">
+
+        <!-- KPI cards -->
+        <div class="kpi-row">
+          {% for kpi in kpis %}
+          <div class="kpi-card">
+            <div class="kpi-card__label">{{ kpi.label }}</div>
+            <div class="kpi-card__value">{{ kpi.value }}</div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Recent items -->
+        <div class="recent-card">
+          <div class="recent-card__title">Recent items</div>
+          <hr class="recent-card__divider">
+          {% for item in items %}
+          <div class="recent-row">
+            <span class="recent-row__name">{{ item.name }}</span>
+            <span class="recent-row__dots"></span>
+            <span class="recent-row__value">{{ item.value }}</span>
+          </div>
+          {% endfor %}
+        </div>
+
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">v1.0.0</footer>
+
+  </div>
+</body>
+</html>
